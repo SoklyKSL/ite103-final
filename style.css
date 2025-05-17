@@ -1,0 +1,216 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+  
+.topnav {
+    background-color: #161c90;
+    position: relative;
+    z-index: 100;
+  }
+
+  .topnav a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 16px;
+    display: block;
+  }
+
+  .topnav a:hover {
+    background-color: #2bb263;
+    color: white;
+  }
+  
+  .topnav a.active {
+    background-color: #2bb263;
+    color: white;
+  }
+
+  .topnav .menu {
+    display: flex;
+  }
+
+  .topnav .menu a {
+    display: inline-block;
+  }
+
+  #menu-toggle {
+    display: none;
+  }
+
+  .burger {
+    display: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 20px;
+    color: white;
+    background-color: #161c90;
+    border: none;
+  }
+
+  
+  .dropdown {
+    position: relative;
+    z-index: 1000;
+  }
+  
+  .dropdown > input[type="checkbox"] {
+    position: absolute;
+    left: -100vw;
+  }
+  
+  .dropdown > label,
+  .dropdown > a[role="button"] {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  }
+  
+  .dropdown > label:hover,
+  .dropdown > a[role="button"]:hover,
+  .dropdown > a[role="button"]:focus {
+    border-color: #333;
+  }
+  
+  .dropdown > label:after,
+  .dropdown > a[role="button"]:after {
+    content: none;
+  }
+  
+  .dropdown > ul {
+    position: absolute;
+    z-index: 999;
+    background: #0a0909;
+    margin: 0;
+    list-style: none;
+    width: auto;
+    white-space: nowrap;
+  }
+  
+  .dropdown > ul a {
+    display: block;
+    padding: 6px 15px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .dropdown > ul a:hover,
+  .dropdown > ul a:focus {
+    background: #ececec;
+  }
+  
+  .dropdown > input[type="checkbox"]:checked ~ ul,
+  .dropdown > ul:target {
+    left: 0;
+  }
+  
+  .dropdown > [type="checkbox"]:checked + label:after,
+  .dropdown > ul:target ~ a:after {
+    content: none;
+  }
+  
+  .dropdown a.close {
+    display: none;
+  }
+  
+  .dropdown > ul:target ~ a.close {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    text-indent: -100vw;
+    z-index: 1000;
+  }
+  
+.dropdown + h2 {
+  margin-top: 60px;
+}
+
+.drop-toggle {
+    color: white;
+    background-color: #161c90;
+    padding: 14px 16px;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .drop-toggle:hover {
+    background-color: #2bb263;
+    color: white;
+  }
+  
+  .dropdown > input[type="checkbox"] {
+    display: none;
+  }
+  
+  .dropdown > input[type="checkbox"]:checked ~ .dropdown-content {
+    display: block;
+  }
+  
+  /* Submenu styles */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #161c90;
+    min-width: 160px;
+    z-index: 999;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .dropdown-content li a {
+    color: white;
+    padding: 14px 16px;
+    display: block;
+    text-decoration: none;
+  }
+  
+  .dropdown-content li a:hover {
+    background-color: #2bb263;
+  }
+  
+
+  @media screen and (min-width: 601px) {
+    .dropdown > input[type="checkbox"] {
+      display: none;
+    }
+    .dropdown:hover > .dropdown-content {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .topnav .menu {
+      display: none;
+      flex-direction: column;
+      background-color: #161c90;
+      width: 100%;
+    }
+
+    #menu-toggle:checked + .burger + .menu {
+      display: flex;
+    }
+
+    .burger {
+      display: block;
+      text-align: right;
+    }
+    .dropdown > input[type="checkbox"] {
+      display: none; /* still hide checkbox itself */
+    }
+    /* Hide dropdown-content by default */
+    .dropdown-content {
+      display: none;
+    }
+    /* Show dropdown-content when checkbox checked */
+    .dropdown > input[type="checkbox"]:checked ~ .dropdown-content {
+      display: block;
+    }
+}
